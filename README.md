@@ -1,8 +1,8 @@
-# Garbage Classification CNN
+# 🗑️ Garbage Classification CNN
 
 Proyek klasifikasi gambar sampah menggunakan Convolutional Neural Network (CNN) dengan TensorFlow/Keras.
 
-## Dataset
+## 📊 Dataset
 
 **Garbage Classification Dataset** dari Kaggle  
 Link: https://www.kaggle.com/datasets/asdasdasasdas/garbage-classification
@@ -24,7 +24,7 @@ Link: https://www.kaggle.com/datasets/asdasdasasdas/garbage-classification
 | Validation | 10%   | Data validasi          |
 | Test       | 20%   | Data pengujian akhir   |
 
-## Arsitektur Model
+## 🏗️ Arsitektur Model
 
 Transfer learning berbasis EfficientNetV2S (pretrained ImageNet) sebagai backbone (base frozen di fase awal), ditambahkan head:
 - GlobalAveragePooling2D
@@ -34,7 +34,7 @@ Transfer learning berbasis EfficientNetV2S (pretrained ImageNet) sebagai backbon
 
 Base model awalnya frozen; kemudian selective fine-tuning (unfreeze ~100 layer terakhir).
 
-## Hyperparameter & Training Strategy
+## ⚙️ Hyperparameter & Training Strategy
 
 - Image size: 224 × 224
 - Batch size: 32
@@ -48,7 +48,7 @@ Training:
 
 (Class weights dihitung otomatis untuk menangani imbalance.)
 
-## Evaluasi & Eksport
+## 📈 Evaluasi & Eksport
 
 - Evaluasi: training / validation / test, confusion matrix & classification report ditampilkan di notebook.
 - Penyimpanan model:
@@ -56,7 +56,7 @@ Training:
   - TF-Lite: ./tflite/model.tflite
   - TF.js: ./tfjs_model/ (konversi via tensorflowjs_converter)
 
-## Inference Contoh
+## 🔍 Inference Contoh
 
 ```python
 import tensorflow as tf
@@ -76,7 +76,7 @@ classes = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
 pred = model.predict(img_array)
 print(f"Prediksi: {classes[np.argmax(pred)]} ({np.max(pred)*100:.2f}%)")
 
-## Hasil
+## 📈 Hasil
 
 | Set        | Accuracy | Loss  |
 |------------|----------|-------|
@@ -84,13 +84,13 @@ print(f"Prediksi: {classes[np.argmax(pred)]} ({np.max(pred)*100:.2f}%)")
 | Validation | ≥ 85%    | -     |
 | Test       | ≥ 85%    | -     |
 
-## Format Model Tersimpan
+## 💾 Format Model Tersimpan
 
 - **SavedModel** (`./saved_model/`) — Deployment TensorFlow/server
 - **TF-Lite** (`./tflite/model.tflite`) — Mobile & embedded devices
 - **TF.js** (`./tfjs_model/`) — Browser & JavaScript apps
 
-## Cara Menjalankan
+## 🚀 Cara Menjalankan
 
 ### 1. Install dependencies
 ```bash
@@ -120,5 +120,6 @@ jupyter notebook notebook.ipynb
 pip install tensorflowjs
 ```
 
-## Dependencies
-Untuk daftar lengkapnya ada di `requirements.txt`
+## 📦 Dependencies
+
+Lihat `requirements.txt` untuk daftar lengkap.
